@@ -1,0 +1,43 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+    padding: 30px;
+}
+.container {
+    max-width: 550px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+h1, h2 { color: #243b55; }
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    gap: 8px;
+    justify-content: center;
+    margin: 25px;
+}
+.board button {
+    height: 90px;
+    font-size: 30px;
+    font-weight: bold;
+    background: #dbeafe;
+    border: 1px solid #93c5fd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.board button:disabled {
+    color: #1e3a8a;
+    cursor: not-allowed;
+}
+.reset {
+    padding: 12px 25px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
