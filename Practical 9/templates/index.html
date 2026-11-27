@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 9 - Blocks World</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Blocks World Planning</h1>
+
+    <form method="POST">
+        <label>Initial Arrangement:</label>
+        <input type="text" name="initial" placeholder="A B C" required>
+
+        <label>Goal Arrangement:</label>
+        <input type="text" name="goal" placeholder="C A B" required>
+
+        <button type="submit">Generate Plan</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if steps %}
+    <div class="result">
+        <h2>Planning Steps</h2>
+        <ol>
+            {% for step in steps %}
+                <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
