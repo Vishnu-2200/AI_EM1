@@ -1,0 +1,35 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+    padding: 30px;
+}
+.container {
+    max-width: 550px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+h1, h2 { color: #243b55; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 85px);
+    gap: 8px;
+    justify-content: center;
+    margin: 30px;
+}
+.cell {
+    height: 85px;
+    background: #dbeafe;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+.cell small { font-size: 12px; margin-top: 5px; }
+.obstacle { background: #ef4444; color: white; }
+.goal { background: #22c55e; color: white; }
