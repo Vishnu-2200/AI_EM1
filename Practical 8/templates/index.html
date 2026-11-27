@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 8 - Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Sentiment Analysis</h1>
+    <h2>Using Naive Bayes Classifier</h2>
+
+    <form method="POST">
+        <label>Enter Your Review:</label>
+        <textarea name="review" placeholder="Write your review here..." required>{{ review }}</textarea>
+        <button type="submit">Analyze Sentiment</button>
+    </form>
+
+    {% if sentiment %}
+    <div class="result">
+        <h2>Sentiment Result</h2>
+        <p>{{ sentiment }}</p>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
