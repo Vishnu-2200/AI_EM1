@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 5 - Expert System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Rule-Based Expert System</h1>
+    <h2>Internet Troubleshooting</h2>
+
+    <form method="POST">
+        <label>Is your internet working?</label>
+        <select name="internet" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label>Is Wi-Fi turned on?</label>
+        <select name="wifi" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label>Does internet work on another device?</label>
+        <select name="other_device" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label>Is the router powered on?</label>
+        <select name="router" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <button type="submit">Find Solution</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h2>Diagnosis</h2>
+        <p>{{ result }}</p>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
