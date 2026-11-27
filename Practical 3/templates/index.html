@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 3 - A* 8 Puzzle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>8 Puzzle Solver</h1>
+    <h2>A* Search Algorithm</h2>
+
+    <form method="POST">
+        <p>Enter numbers from 0 to 8. Use 0 for the empty space.</p>
+
+        <div class="puzzle">
+            {% for i in range(9) %}
+                <input
+                    type="number"
+                    name="cell{{ i }}"
+                    min="0"
+                    max="8"
+                    value="{{ initial_state[i] }}"
+                    required>
+            {% endfor %}
+        </div>
+
+        <label>Select Heuristic:</label>
+        <select name="heuristic">
+            <option value="manhattan"
+                {% if heuristic == 'manhattan' %}selected{% endif %}>
+                Manhattan Distance
+            </option>
+
+            <option value="misplaced"
+                {% if heuristic == 'misplaced' %}selected{% endif %}>
+                Misplaced Tiles
+            </option>
+        </select>
+
+        <button type="submit">Solve Puzzle</button>
+    </form>
+
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    {% if solution %}
+        <h2>Solution Steps</h2>
+        <p>Total Moves: {{ solution|length - 1 }}</p>
+
+        {% for board in solution %}
+            <div class="step">
+                <h3>Step {{ loop.index0 }}</h3>
+
+                <div class="board">
+                    {% for row in board %}
+                        {% for value in row %}
+                            <div class="tile">
+                                {% if value == 0 %}
+                                    _
+                                {% else %}
+                                    {{ value }}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+</body>
+</html>
