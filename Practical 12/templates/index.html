@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 12 - Decision Tree</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Student Performance Prediction</h1>
+    <h2>Decision Tree Classifier</h2>
+
+    <form method="POST">
+        <label>Study Hours Per Day:</label>
+        <input type="number" name="study_hours"
+               min="0" max="24" step="0.5" required>
+
+        <label>Attendance Percentage:</label>
+        <input type="number" name="attendance"
+               min="0" max="100" required>
+
+        <label>Previous Marks:</label>
+        <input type="number" name="previous_marks"
+               min="0" max="100" required>
+
+        <button type="submit">Predict Performance</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+        <h2>Prediction Result</h2>
+        <p>{{ prediction }}</p>
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
