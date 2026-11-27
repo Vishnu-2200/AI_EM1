@@ -1,0 +1,32 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+    padding: 30px;
+}
+.container {
+    max-width: 550px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+h1, h2 { color: #243b55; }
+.map {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    gap: 12px;
+    justify-content: center;
+    margin: 30px;
+}
+.region {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 10px;
+}
