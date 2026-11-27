@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 4 - Tic Tac Toe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Tic Tac Toe</h1>
+    <h2>Minimax Algorithm with Alpha-Beta Pruning</h2>
+    <p>{{ message }}</p>
+
+    <form method="POST">
+        <div class="board">
+            {% for cell in board %}
+                <button type="submit" name="move" value="{{ loop.index0 }}"
+                        {% if cell != ' ' %}disabled{% endif %}>
+                    {{ cell }}
+                </button>
+                <input type="hidden" name="board" value="{{ cell }}">
+            {% endfor %}
+        </div>
+    </form>
+
+    <form method="GET">
+        <button class="reset" type="submit">Reset Game</button>
+    </form>
+</div>
+</body>
+</html>
