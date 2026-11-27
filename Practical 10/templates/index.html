@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 10 - Value Iteration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Grid World</h1>
+    <h2>Value Iteration Algorithm</h2>
+
+    <div class="grid">
+        {% for r in range(rows) %}
+            {% for c in range(cols) %}
+                {% if (r, c) in obstacles %}
+                    <div class="cell obstacle">X</div>
+                {% elif (r, c) == goal %}
+                    <div class="cell goal">G</div>
+                {% else %}
+                    <div class="cell">
+                        <strong>{{ policy[(r, c)] }}</strong>
+                        <small>{{ "%.2f"|format(values[(r, c)]) }}</small>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <p>G = Goal | X = Obstacle</p>
+    <p>Arrows indicate the optimal policy.</p>
+</div>
+</body>
+</html>
