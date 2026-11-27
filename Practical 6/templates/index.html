@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical 6 - Map Coloring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Map Coloring Problem</h1>
+    <h2>Constraint Satisfaction Problem</h2>
+
+    <div class="map">
+        {% for node, color in solution.items() %}
+        <div class="region" style="background-color: {{ color }};">
+            {{ node }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <h2>Color Assignment</h2>
+    {% for node, color in solution.items() %}
+        <p>Region {{ node }}: {{ color }}</p>
+    {% endfor %}
+</div>
+</body>
+</html>
